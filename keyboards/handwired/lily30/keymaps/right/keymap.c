@@ -44,10 +44,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
     [_BASE] = LAYOUT( \
     KC_DEL,   KC_0,   KC_9,    KC_8,    KC_7,    KC_6,        
-    KC_HOME,   KC_P,   KC_O,    KC_I,    KC_U,    KC_Y,         
-    KC_END, KC_A,   KC_L,    KC_K,    KC_J,    KC_H,         
-    KC_LSFT,  KC_MINUS,   KC_DOT,    KC_SCOLON,    KC_M,    KC_N, KC_RBRACKET,
-                KC_DOWN, KC_UP, KC_RALT,KC_ENT, KC_BSPC
+    KC_ENT,   KC_P,   KC_O,    KC_I,    KC_U,    KC_Y,         
+    KC_HOME, KC_A,   KC_L,    KC_K,    KC_J,    KC_H,         
+    KC_END,  KC_MINS,   KC_DOT,    KC_SCLN,    KC_M,    KC_N, KC_RIGHT_CURLY_BRACE,
+                KC_RIGHT, KC_DOWN, KC_UP,KC_LEFT, KC_BSPC
     ),
     // [_FN] = LAYOUT(
     //     QMKBEST, QMKURL,  _______,

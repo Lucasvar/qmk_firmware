@@ -14,7 +14,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include QMK_KEYBOARD_H
-
 // Defines names for use in layer keycodes and the keymap
 enum layer_names {
     _BASE,
@@ -26,60 +25,64 @@ enum custom_keycodes {
     QMKBEST = SAFE_RANGE,
     QMKURL
 };
-const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    /* Base 
-    *          ,-----------------------------------------.
-    *          |   6  |   7  |  8   |  9   |  0   | supr |
-    *          |------+------+------+------+------+------|
-    *          |   Y  |   U  |   I  |   O  |   P  | Home |
-    *          |------+------+------+------+------+------|
-    *  ,-------|   H  |   J  |   K  |   L  |      | End  |
-    * |    }   |------+------+------+------+------+------|
-    * |------- |   N  |   M  |   ,  |  .   |   -  |      |
-    *  \       \-----------------------------------------'
-    *   \ Enter \  |BackSP |BackSP| AltGr| RAISE|
-    *    \       \ |      |      |      |      |
-    *     '------''---------------------------' 
- */
-    [_BASE] = LAYOUT( \
-    KC_DEL,   KC_0,   KC_9,    KC_8,    KC_7,    KC_6,        
-    KC_HOME,   KC_P,   KC_O,    KC_I,    KC_U,    KC_Y,         
-    KC_END, KC_A,   KC_L,    KC_K,    KC_J,    KC_H,         
-    KC_LSFT,  KC_MINUS,   KC_DOT,    KC_SCOLON,    KC_M,    KC_N, KC_RBRACKET,
-                KC_DOWN, KC_UP, KC_RALT,KC_ENT, KC_BSPC
-    ),
-    // [_FN] = LAYOUT(
-    //     QMKBEST, QMKURL,  _______,
-    //         RESET,    XXXXXXX
-    // )
-};
 // const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //     /* Base 
-//     * ,-----------------------------------------.        
-//     * | ESC  |   1  |   2  |   3  |   4  |   5  |        
-//     * |------+------+------+------+------+------|        
-//     * | Tab  |   Q  |   W  |   E  |   R  |   T  |        
-//     * |------+------+------+------+------+------|        
-//     * |LCTRL |   A  |   S  |   D  |   F  |   G  |-------.
-//     * |------+------+------+------+------+------|   {   |
-//     * |LShift|   Z  |   X  |   C  |   V  |   B  |-------|
-//     * `-----------------------------------------/       /
-//     *            | LAlt | LOWER | Fn  | LGUI | / Space / 
-//     *            |      |       | bs  |      |/       /  
-//     *            `-----------------------------------'   
+//     *          ,-----------------------------------------.
+//     *          |   6  |   7  |  8   |  9   |  0   | supr |
+//     *          |------+------+------+------+------+------|
+//     *          |   Y  |   U  |   I  |   O  |   P  |      |
+//     *          |------+------+------+------+------+------|
+//     *  ,-------|   H  |   J  |   K  |   L  |      | Home |
+//     * |    }   |------+------+------+------+------+------|
+//     * |------- |   N  |   M  |   ,  |  .   |   -  |  End |
+//     *  \       \-----------------------------------------'
+//     *   \ Enter \  |BackSP |BackSP| AltGr| RAISE|
+//     *    \       \ |      |      |      |      |
+//     *     '------''---------------------------' 
 //  */
 //     [_BASE] = LAYOUT( 
-//     KC_ESC,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,        
-//     KC_TAB,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,         
-//     KC_LCTRL, KC_A,   KC_S,    KC_D,    KC_F,    KC_G,         
-//     KC_LSFT,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, KC_LBRC,
-//                 KC_LALT, KC_ENT, KC_BSPC,KC_LGUI, KC_SPC
+//     KC_DEL,   KC_0,   KC_9,    KC_8,    KC_7,    KC_6,        
+//     KC_ENT,   KC_P,   KC_O,    KC_I,    KC_U,    KC_Y,         
+//     KC_HOME, KC_A,   KC_L,    KC_K,    KC_J,    KC_H,         
+//     KC_END,  KC_SLSH,   KC_DOT,    KC_COMM,    KC_M,    KC_N, S(ALGR(KC_NUHS)),
+//                 KC_RIGHT, KC_DOWN, KC_UP,KC_LEFT, KC_BSPC
 //     ),
+//     // [_FN] = LAYOUT(
+//     //     QMKBEST, QMKURL,  _______,{{{}}}[]
+//     //         RESET,    XXXXXXX
+//     // )..:.:..:.ññÑñÑñÑñ''?'???p''''???..::....:.ññÑñmmmmmaaa ñÑññ
+//     //7777ñññ
+// };
+const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+    /* Base 
+    * ,-----------------------------------------.        
+    * | ESC  |   1  |   2  |   3  |   4  |   5  |        
+    * |------+------+------+------+------+------|        
+    * | Tab  |   Q  |   W  |   E  |   R  |   T  |        
+    * |------+------+------+------+------+------|        
+    * |LShift|   A  |   S  |   D  |   F  |   G  |-------.
+    * |------+------+------+------+------+------|   {   |
+    * |LCTRL |   Z  |   X  |   C  |   V  |   B  |-------|
+    * `-----------------------------------------/       /
+    *            |RAISE| LOWER | LGUI | LAlt | / Space / 
+    *            |     |       |      |      |/       /  
+    *            `-----------------------------------'   
+ */
+    [_BASE] = LAYOUT( 
+    KC_ESC,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,        
+    KC_TAB,   KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,         
+    KC_LSFT, KC_A,   KC_S,    KC_D,    KC_F,    KC_G,         
+    KC_LCTRL,  KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, S(ALGR(KC_QUOT)),
+            KC_A, KC_A, KC_LGUI, KC_LALT, KC_SPC
+    ),
 //     // [_FN] = LAYOUT(
 //     //     QMKBEST, QMKURL,  _______,
 //     //         RESET,    XXXXXXX
 //     // )
-// };
+// 112234555qwerr
+
+
+};
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
